@@ -3,304 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Wyind</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <title>Pink Windows 95 Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/95css@latest/css/95css.min.css" />
     <style>
-        /* Custom Cursor */
+        @font-face {
+            font-family: 'W95FA';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+        }
+        
+        /* Base Styles */
         * {
-            cursor: none;
+            box-sizing: border-box;
+            font-family: 'W95FA', 'Pixelated MS Sans Serif', 'MS Sans Serif', 'Fixedsys Excelsior', sans-serif;
+            image-rendering: pixelated;
+        }
+        
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            overflow-x: hidden;
-            height: 100vh;
-        }
-
-        /* Custom Cursor */
-        .cursor {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            pointer-events: none;
-            mix-blend-mode: difference;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-        }
-
-        .cursor-dot {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Hero Section */
-        .hero {
+            background-color: #ff9ecf;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+            color: #000;
+            overflow: hidden;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
+            user-select: none;
+            font-size: 12px;
+        }
+        
+        /* Windows 95 Window Styles */
+        .window {
+            background-color: #ffbee3;
+            border: 3px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            width: 600px;
             position: relative;
             overflow: hidden;
         }
-
-        .profile-pic { 
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 1rem;
-            object-fit: cover;
-            animation: float 3s ease-in-out infinite;
-            
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            animation: fade-in-bottom 1s ease-out both;
-            animation-delay: 0.5s;
-        }
-
-        /* Social Media Links Section */
-        .social-links {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+        
+        .title-bar {
+            background: linear-gradient(to right, #ff61b3, #ff8ecc);
+            padding: 3px 4px;
             display: flex;
-            gap: 1.5rem;
-            z-index: 100;
-            text-decoration: none;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            height: 22px;
         }
-
-        .social-bubble {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
+        
+        .title-text {
+            margin-left: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: 0.5px;
+        }
+        
+        .window-controls {
+            display: flex;
+        }
+        
+        .control-button {
+            width: 16px;
+            height: 14px;
+            margin-left: 2px;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
-            text-decoration: none;
+            font-size: 10px;
+            cursor: pointer;
+            line-height: 12px;
         }
-
-        .social-bubble:nth-child(2) {
-            animation-delay: 0.2s;
+        
+        .control-button:active {
+            border-color: #808080 #ffffff #ffffff #808080;
         }
-
-        .social-bubble:nth-child(3) {
-            animation-delay: 0.4s;
+        
+        .window-content {
+            padding: 10px;
+            background-color: #ffbee3;
+            overflow: auto;
+            height: 400px;
         }
-
-        .social-bubble:nth-child(4) {
-            animation-delay: 0.6s;
+        
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            margin-bottom: 20px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 10px;
+            background-color: #ffc6e7;
         }
-
-        .social-bubble:hover {
-            transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.3);
+        
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            background-color: #ff9ecf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
-
-        .social-bubble img {
-            width: 30px;
-            height: 30px;
+        
+        .profile-picture img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
         }
-
-        /* Floating particles */
-        .particles {
-            position: absolute;
+        
+        .profile-info {
+            margin-left: 15px;
+            flex-grow: 1;
+        }
+        
+        .username {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .online {
+            background-color: #43b581;
+        }
+        
+        .idle {
+            background-color: #faa61a;
+        }
+        
+        .dnd {
+            background-color: #f04747;
+        }
+        
+        .offline {
+            background-color: #747f8d;
+        }
+        
+        /* Connections Section */
+        .connections-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            background: linear-gradient(to right, #ff61b3, #ff8ecc);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .connections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .connection-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            background-color: #c0c0c0;
+            cursor: pointer;
+        }
+        
+        .connection-item:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+            background-color: #dfdfdf;
+        }
+        
+        .connection-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 5px;
+            background-color: #ff9ecf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #808080;
+        }
+        
+        .connection-icon img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .connection-name {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        /* About Me Section */
+        .about-section {
+            margin-bottom: 20px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080;
+            padding: 10px;
+            background-color: #ffc6e7;
+        }
+        
+        .about-content {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        /* Contact Button */
+        .contact-button {
+            display: block;
+            width: 150px;
+            margin: 0 auto;
+            padding: 6px 10px;
+            background-color: #c0c0c0;
+            color: black;
+            text-align: center;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 1px 1px 0px inset #ffffff, -1px -1px 0px inset #808080;
+        }
+        
+        .contact-button:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+            box-shadow: 1px 1px 0px inset #808080, -1px -1px 0px inset #ffffff;
+        }
+        
+        /* Modal Dialog */
+        .modal {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
-
-        .particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: move 10s linear infinite;
+        
+        .modal-window {
+            background-color: #ffbee3;
+            border: 3px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            width: 300px;
         }
-
-        /* Game element animations */
-        .game-element {
-            position: absolute;
-            opacity: 0.5;
-            animation: float 4s ease-in-out infinite;
+        
+        .modal-title {
+            background: linear-gradient(to right, #ff61b3, #ff8ecc);
+            padding: 3px 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
         }
-
-        /* Animations */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
+        
+        .modal-content {
+            padding: 20px;
+            text-align: center;
         }
-
-        @keyframes move {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100vw);
-                opacity: 0;
-            }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
         }
-
-        @keyframes tracking-in-expand {
-            0% {
-                letter-spacing: -0.5em;
-                opacity: 0;
-            }
-            40% {
-                opacity: 0.6;
-            }
-            100% {
-                opacity: 1;
-            }
+        
+        .modal-button {
+            padding: 6px 15px;
+            background-color: #ffbee3;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            cursor: pointer;
+            font-size: 12px;
+            box-shadow: 1px 1px 0px inset #ffffff, -1px -1px 0px inset #808080;
+            min-width: 75px;
         }
-
-        @keyframes fade-in-bottom {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        
+        .modal-button:active {
+            border-color: #808080 #ffffff #ffffff #808080;
+            box-shadow: 1px 1px 0px inset #808080, -1px -1px 0px inset #ffffff;
+        }
+        
+        /* Make all elements more "pixelated" */
+        button, .control-button, .connection-item, .profile-picture, .about-section, .profile-section {
+            image-rendering: pixelated;
         }
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
-
-    <!-- Floating Particles -->
-    <div class="particles">
-        <div class="particle" style="top: 20%; left: 10%; width: 8px; height: 8px; animation-duration: 15s;"></div>
-        <div class="particle" style="top: 40%; left: 20%; width: 12px; height: 12px; animation-duration: 12s;"></div>
-        <div class="particle" style="top: 60%; left: 50%; width: 6px; height: 6px; animation-duration: 18s;"></div>
-        <div class="particle" style="top: 80%; left: 70%; width: 10px; height: 10px; animation-duration: 14s;"></div>
-        <div class="particle" style="top: 30%; left: 90%; width: 7px; height: 7px; animation-duration: 16s;"></div>
-    </div>
-
-    <!-- Game Elements -->
-    <img src="/api/placeholder/100/100" alt="" class="game-element" style="top: 15%; left: 10%; animation-delay: 1s;">
-    <img src="/api/placeholder/80/80" alt="" class="game-element" style="top: 70%; left: 85%; animation-delay: 2.5s;">
-    <img src="/api/placeholder/60/60" alt="" class="game-element" style="top: 40%; left: 20%; animation-delay: 1.5s;">
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="https://media.discordapp.net/attachments/993169934047784970/1348767211439001681/AajoOSOI_400x400.jpg?ex=67d0a8da&is=67cf575a&hm=00f640a7dc159df88717fad6bb485914389649680eee1f170d1f7e2e56cf8719&=&format=webp" alt="Wyind's Profile Picture" class="profile-pic">
-        <h1 class="animate__animated animate__fadeInDown">WYIND</h1>
-        <p class="animate__animated animate__fadeInUp">Gamer • Developer • Creator</p>
-        <div class="animate__animated animate__fadeIn animate__delay-1s">
-            <p>Fortnite enthusiast and aspiring developer.<br>Coding in Python and HTML when I'm not busy gaming.</p>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-text">About Me - profile.exe</div>
+            <div class="window-controls">
+                <div class="control-button">_</div>
+                <div class="control-button">□</div>
+                <div class="control-button">×</div>
+            </div>
         </div>
-    </section>
-
-    <!-- Social Media Links -->
-    <div class="social-links">
-        <a href="https://discord.com/users/wyind" target="_blank" class="social-bubble">
-            <i class="fa-brands fa-discord" style="color: white; font-size: 30px;"></i>
-        </a>
-        <a href="https://steamcommunity.com/id/wyind/" target="_blank" class="social-bubble">
-            <i class="fa-brands fa-steam" style="color: white; font-size: 30px;"></i>
-        </a>
-        <a href="https://github.com/Wyind" target="_blank" class="social-bubble">
-            <i class="fa-brands fa-github" style="color: white; font-size: 30px;"></i>
-        </a>
-        <a href="https://www.youtube.com/@wyindxd" target="_blank" class="social-bubble">
-            <i class="fa-brands fa-youtube" style="color: white; font-size: 30px;"></i>
-        </a>
-    </div>
-
-    <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorDot = document.querySelector('.cursor-dot');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+        <div class="window-content">
+            <div class="profile-section">
+                <div class="profile-picture" id="profile-picture">
+                    <!-- The Discord profile picture will be loaded here -->
+                    <img src="https://cdn.discordapp.com/avatars/543796570601160706/2cfb00f06d68dc9fb85b4f770be4e4e7?size=100" alt="Profile Picture" id="discord-avatar">
+                </div>
+                <div class="profile-info">
+                    <div class="username" id="username">Username</div>
+                    <div class="status">
+                        <div class="status-indicator online" id="status-indicator"></div>
+                        <span id="status-text">Online</span>
+                    </div>
+                    <div id="status-message">Currently vibing in Windows 95...</div>
+                </div>
+            </div>
             
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        });
+            <div class="connections-section">
+                <div class="section-title">My Connections</div>
+                <div class="connections-grid">
+                    <div class="connection-item" onclick="window.open('https://discord.com', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt="Discord" id="discord-icon">
+                        </div>
+                        <div class="connection-name">Discord</div>
+                    </div>
+                    <div class="connection-item" onclick="window.open('https://github.com/Wyind', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt="GitHub" id="github-icon">
+                        </div>
+                        <div class="connection-name">GitHub</div>
+                    </div>
+                    <div class="connection-item" onclick="window.open('https://www.youtube.com/@wyindxd', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=37326&format=png&color=000000" alt="YouTube" id="youtube-icon">
+                        </div>
+                        <div class="connection-name">YouTube</div>
+                    </div>
+                    <div class="connection-item" onclick="window.open('https://x.com/wyindszn', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=8824&format=png&color=000000" alt="Twitter" id="twitter-icon">
+                        </div>
+                        <div class="connection-name">Twitter</div>
+                    </div>
+                    <div class="connection-item" onclick="window.open('https://www.instagram.com/wyinds/', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=DpOQ6G5p47f0&format=png&color=000000" alt="Instagram" id="instagram-icon">
+                        </div>
+                        <div class="connection-name">Instagram</div>
+                    </div>
+                    <div class="connection-item" onclick="window.open('https://www.twitch.tv/wyinds', '_blank')">
+                        <div class="connection-icon">
+                            <img src="https://img.icons8.com/?size=100&id=18104&format=png&color=000000" alt="Twitch" id="twitch-icon">
+                        </div>
+                        <div class="connection-name">Twitch</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <div class="section-title">About Me</div>
+                <div class="about-content" id="about-content">
+                    Hey there! Welcome to my retro Windows 95 profile page. I love the aesthetic of the '90s and do a bunch of HTML, CSS, C++ and Python. Feel free to check out my socials or hit that contact button below to reach out!
+                </div>
+            </div>
+            
+            <button class="contact-button" id="contact-button">Contact Me</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="confirm-modal">
+        <div class="modal-window">
+            <div class="modal-title">Confirm</div>
+            <div class="modal-content">
+                <p>Are you sure you want to contact me via Discord?</p>
+                <div class="modal-buttons">
+                    <button class="modal-button" id="yes-button">Yes</button>
+                    <button class="modal-button" id="no-button">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Select DOM elements
+        const contactButton = document.getElementById('contact-button');
+        const confirmModal = document.getElementById('confirm-modal');
+        const yesButton = document.getElementById('yes-button');
+        const noButton = document.getElementById('no-button');
+        const statusIndicator = document.getElementById('status-indicator');
+        const statusText = document.getElementById('status-text');
         
-        document.addEventListener('mousedown', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
-        });
+        // Custom data - replace these values with your actual information
+        const userData = {
+            username: "wyind",
+            status: "online", // online, idle, dnd, offline
+            statusMessage: "Currently vibing in Windows 95...",
+            discordUsername: "@wyind",
+            aboutMe: "Hey there! Welcome to my retro Windows 95 profile page. I love the aesthetic of the '90s and wanted to bring back that nostalgic feel with this pink-themed page. Feel free to check out my socials or hit that contact button below to reach out!"
+        };
         
-        document.addEventListener('mouseup', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-
-        // Generate random particles
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            for (let i = 0; i < 15; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random position, size and animation duration
-                const size = Math.random() * 10 + 5;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                particlesContainer.appendChild(particle);
+        // Function to update profile with user data
+        function updateProfile() {
+            document.getElementById('username').textContent = userData.username;
+            document.getElementById('status-message').textContent = userData.statusMessage;
+            document.getElementById('about-content').textContent = userData.aboutMe;
+            
+            // Update status indicator
+            statusIndicator.className = 'status-indicator ' + userData.status;
+            switch(userData.status) {
+                case 'online':
+                    statusText.textContent = 'Online';
+                    break;
+                case 'idle':
+                    statusText.textContent = 'Idle';
+                    break;
+                case 'dnd':
+                    statusText.textContent = 'Do Not Disturb';
+                    break;
+                case 'offline':
+                    statusText.textContent = 'Offline';
+                    break;
             }
         }
         
-        createParticles();
+        // Initialize profile
+        updateProfile();
+        
+        // Contact button click event
+        contactButton.addEventListener('click', function() {
+            confirmModal.style.display = 'flex';
+        });
+        
+        // Yes button click event
+        yesButton.addEventListener('click', function() {
+            // Replace with your actual Discord link or username
+            window.open('https://discord.com/users/' + userData.discordUsername, '_blank');
+            confirmModal.style.display = 'none';
+        });
+        
+        // No button click event
+        noButton.addEventListener('click', function() {
+            confirmModal.style.display = 'none';
+        });
+        
+        // Custom icon loading function
+        // This is where you would implement code to load custom icons
+        function loadCustomIcons() {
+            // In a real implementation, this would load icons from a user's storage
+            // For now, it's just placeholder logic
+            console.log("Ready to load custom icons");
+        }
+        
+        // Call the icon loading function
+        loadCustomIcons();
+        
+        // Function to simulate Discord profile picture loading
+        // In a real implementation, you would need to use Discord's API
+        function loadDiscordProfile() {
+            // This is where you would implement actual Discord integration
+            console.log("Ready to load Discord profile data");
+        }
+        
+        // Call the Discord profile loading function
+        loadDiscordProfile();
+        
+        // Attempt to add Windows 95 font
+        WebFontLoader.load({
+            custom: {
+                families: ['W95FA'],
+                urls: ['https://fontsforweb.com/font/getcss?id=59761&apikey=a04d7b0365d3e24c6ee1']
+            }
+        });
     </script>
 </body>
 </html>
