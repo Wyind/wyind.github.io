@@ -3,503 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Wyind!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/95css@latest/css/95css.min.css" />
+    <title>Josh | Wyind</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'W95FA';
-            src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+        :root {
+            --deep-purple: #2e1065;
+            --purple: #581c87;
+            --light-purple: #7e22ce;
+            --text-color: #f5f3ff;
+            --accent: #c084fc;
         }
         
-        /* Base Styles */
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            font-family: 'W95FA', 'Pixelated MS Sans Serif', 'MS Sans Serif', 'Fixedsys Excelsior', sans-serif;
-            image-rendering: pixelated;
+            font-family: 'Courier New', monospace;
+            color: var(--text-color);
         }
         
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #ff9ecf;
-            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
-            color: #000;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            font-size: 12px;
-        }
-        
-        /* Windows 95 Window Styles */
-        .window {
-            background-color: #ffbee3;
-            border: 3px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-            width: 600px;
+            background-color: var(--deep-purple);
+            overflow-x: hidden;
+            min-height: 100vh;
             position: relative;
-            overflow: hidden;
         }
         
-        .title-bar {
-            background: linear-gradient(to right, #ff61b3, #ff8ecc);
-            padding: 3px 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            height: 22px;
-        }
-        
-        .title-text {
-            margin-left: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            letter-spacing: 0.5px;
-        }
-        
-        .window-controls {
-            display: flex;
-        }
-        
-        .control-button {
-            width: 16px;
-            height: 14px;
-            margin-left: 2px;
-            background-color: #c0c0c0;
-            border: 2px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 10px;
-            cursor: pointer;
-            line-height: 12px;
-        }
-        
-        .control-button:active {
-            border-color: #808080 #ffffff #ffffff #808080;
-        }
-        
-        .window-content {
-            padding: 10px;
-            background-color: #ffbee3;
-            overflow: auto;
-            height: 400px;
-        }
-        
-        /* Profile Section */
-        .profile-section {
-            display: flex;
-            margin-bottom: 20px;
-            border: 2px solid;
-            border-color: #808080 #ffffff #ffffff #808080;
-            padding: 10px;
-            background-color: #ffc6e7;
-        }
-        
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            border: 2px solid;
-            border-color: #808080 #ffffff #ffffff #808080;
-            background-color: #ff9ecf;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .profile-picture img {
-            width: 90%;
-            height: 90%;
-            object-fit: cover;
-        }
-        
-        .profile-info {
-            margin-left: 15px;
-            flex-grow: 1;
-        }
-        
-        .username {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .status {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-        
-        .online {
-            background-color: #43b581;
-        }
-        
-        .idle {
-            background-color: #faa61a;
-        }
-        
-        .dnd {
-            background-color: #f04747;
-        }
-        
-        .offline {
-            background-color: #747f8d;
-        }
-        
-        /* Connections Section */
-        .connections-section {
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            background: linear-gradient(to right, #ff61b3, #ff8ecc);
-            color: white;
-            padding: 3px 5px;
-            font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .connections-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        
-        .connection-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 2px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            background-color: #c0c0c0;
-            cursor: pointer;
-        }
-        
-        .connection-item:active {
-            border-color: #808080 #ffffff #ffffff #808080;
-            background-color: #dfdfdf;
-        }
-        
-        .connection-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 5px;
-            background-color: #ff9ecf;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #808080;
-        }
-        
-        .connection-icon img {
-            width: 24px;
-            height: 24px;
-        }
-        
-        .connection-name {
-            font-size: 12px;
-            text-align: center;
-        }
-        
-        /* About Me Section */
-        .about-section {
-            margin-bottom: 20px;
-            border: 2px solid;
-            border-color: #808080 #ffffff #ffffff #808080;
-            padding: 10px;
-            background-color: #ffc6e7;
-        }
-        
-        .about-content {
-            font-size: 12px;
-            line-height: 1.4;
-        }
-        
-        /* Contact Button */
-        .contact-button {
-            display: block;
-            width: 150px;
-            margin: 0 auto;
-            padding: 6px 10px;
-            background-color: #c0c0c0;
-            color: black;
-            text-align: center;
-            border: 2px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
-            box-shadow: 1px 1px 0px inset #ffffff, -1px -1px 0px inset #808080;
-        }
-        
-        .contact-button:active {
-            border-color: #808080 #ffffff #ffffff #808080;
-            box-shadow: 1px 1px 0px inset #808080, -1px -1px 0px inset #ffffff;
-        }
-        
-        /* Modal Dialog */
-        .modal {
-            display: none;
+        .crt-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        
+        .crt-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 60%, rgba(46, 16, 101, 0.6) 100%);
+            z-index: 11;
+        }
+        
+        .crt-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 12;
+        }
+        
+        .flicker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 16, 101, 0.05);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 13;
+            animation: flicker 6s infinite;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0; }
+            5% { opacity: 0.5; }
+            10% { opacity: 0; }
+            75% { opacity: 0; }
+            80% { opacity: 0.5; }
+            85% { opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
         
-        .modal-window {
-            background-color: #ffbee3;
-            border: 3px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            width: 300px;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px var(--accent);
+            animation: glow 2s infinite alternate;
+            object-fit: cover;
         }
         
-        .modal-title {
-            background: linear-gradient(to right, #ff61b3, #ff8ecc);
-            padding: 3px 4px;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--accent);
+            animation: glow 2s infinite alternate;
         }
         
-        .modal-content {
-            padding: 20px;
-            text-align: center;
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
         }
         
-        .modal-buttons {
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section {
+            background-color: rgba(88, 28, 135, 0.8);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeUp 0.6s forwards;
+        }
+        
+        @keyframes fadeUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            text-shadow: 0 0 8px var(--accent);
+        }
+        
+        .project-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .project-link:hover::after {
+            width: 100%;
+        }
+        
+        .social-links {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .modal-button {
-            padding: 6px 15px;
-            background-color: #ffbee3;
-            border: 2px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            cursor: pointer;
-            font-size: 12px;
-            box-shadow: 1px 1px 0px inset #ffffff, -1px -1px 0px inset #808080;
-            min-width: 75px;
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--purple);
+            color: var(--text-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-purple);
         }
         
-        .modal-button:active {
-            border-color: #808080 #ffffff #ffffff #808080;
-            box-shadow: 1px 1px 0px inset #808080, -1px -1px 0px inset #ffffff;
+        .social-btn:hover {
+            background-color: var(--light-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        /* Make all elements more "pixelated" */
-        button, .control-button, .connection-item, .profile-picture, .about-section, .profile-section {
-            image-rendering: pixelated;
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+            }
+            to {
+                text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="window">
-        <div class="title-bar">
-            <div class="title-text">About Me - profile.exe</div>
-            <div class="window-controls">
-                <div class="control-button">_</div>
-                <div class="control-button">□</div>
-                <div class="control-button">×</div>
+    <!-- CRT effects -->
+    <div class="crt-overlay"></div>
+    <div class="crt-lines"></div>
+    <div class="flicker"></div>
+    
+    <!-- Particles background -->
+    <canvas class="particles" id="particles"></canvas>
+    
+    <div class="container">
+        <header>
+            <img src="https://media.discordapp.net/attachments/993169934047784970/1369647327354163250/e1c5b906a356daeba0ac412e67cd7f8b.jpg?ex=681c9ef9&is=681b4d79&hm=abfadb811e5a22d7cd5223a06fdb8b61901cf254ee9b78cfecafe3c4f2d8cdbe&=&format=webp" alt="Josh / Wyind Profile Picture" class="profile-pic">
+            <h1>Josh / Wyind</h1>
+            <p>Cybersecurity Enthusiast | Game Developer | Minecraft Veteran</p>
+        </header>
+        
+        <section class="section">
+            <h2>// Introduction</h2>
+            <p>Hi, My name is Josh, or as other people call me Wyind.</p>
+            <p>I'm a passionate tech enthusiast with a deep interest in cybersecurity and game development. With 10 years of Minecraft experience starting from Mineplex in 2014 and moving to Hypixel in 2015, I've developed various projects that blend my love for gaming and programming.</p>
+            <div class="social-links">
+                <a href="https://github.com/wyind" class="social-btn" target="_blank" title="GitHub">
+                    <i class="nf nf-fa-github"></i>
+                </a>
+                <a href="https://twitch.tv/wyinds" class="social-btn" target="_blank" title="Twitch">
+                    <i class="nf nf-fa-twitch"></i>
+                </a>
+                <a href="https://twitter.com/wyindszn" class="social-btn" target="_blank" title="Twitter">
+                    <i class="nf nf-fa-twitter"></i>
+                </a>
             </div>
-        </div>
-        <div class="window-content">
-            <div class="profile-section">
-                <div class="profile-picture" id="profile-picture">
-                    <!-- The Discord profile picture will be loaded here -->
-                    <img src="https://cdn.discordapp.com/avatars/543796570601160706/2cfb00f06d68dc9fb85b4f770be4e4e7?size=100" alt="Profile Picture" id="discord-avatar">
+        </section>
+        
+        <section class="section">
+            <h2>// Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3><a href="https://github.com/wyind/titannet" class="project-link" target="_blank">TitanNet</a></h3>
+                    <p>My largest GitHub project to date. A robust GUI based Python-based network stress testing tool designed to evaluate the resilience and performance of your network infrastructure.
+                    </p>
                 </div>
-                <div class="profile-info">
-                    <div class="username" id="username">Username</div>
-                    <div class="status">
-                        <div class="status-indicator online" id="status-indicator"></div>
-                        <span id="status-text">Online</span>
-                    </div>
-                    <div id="status-message">Currently vibing in Windows 95...</div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/wyind/mc-resource-manager" class="project-link" target="_blank">MC Resource Manager</a></h3>
+                    <p>A Python-based Minecraft resource pack and shader pack manager that simplifies mod organization and installation.</p>
                 </div>
-            </div>
-            
-            <div class="connections-section">
-                <div class="section-title">My Connections</div>
-                <div class="connections-grid">
-                    <div class="connection-item" onclick="window.open('https://discord.com', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt="Discord" id="discord-icon">
-                        </div>
-                        <div class="connection-name">Discord</div>
-                    </div>
-                    <div class="connection-item" onclick="window.open('https://github.com/Wyind', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt="GitHub" id="github-icon">
-                        </div>
-                        <div class="connection-name">GitHub</div>
-                    </div>
-                    <div class="connection-item" onclick="window.open('https://www.youtube.com/@wyindxd', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=37326&format=png&color=000000" alt="YouTube" id="youtube-icon">
-                        </div>
-                        <div class="connection-name">YouTube</div>
-                    </div>
-                    <div class="connection-item" onclick="window.open('https://x.com/wyindszn', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=8824&format=png&color=000000" alt="Twitter" id="twitter-icon">
-                        </div>
-                        <div class="connection-name">Twitter</div>
-                    </div>
-                    <div class="connection-item" onclick="window.open('https://www.instagram.com/wyinds/', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=DpOQ6G5p47f0&format=png&color=000000" alt="Instagram" id="instagram-icon">
-                        </div>
-                        <div class="connection-name">Instagram</div>
-                    </div>
-                    <div class="connection-item" onclick="window.open('https://www.twitch.tv/wyinds', '_blank')">
-                        <div class="connection-icon">
-                            <img src="https://img.icons8.com/?size=100&id=18104&format=png&color=000000" alt="Twitch" id="twitch-icon">
-                        </div>
-                        <div class="connection-name">Twitch</div>
-                    </div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/wyind/mc-server-optimizer" class="project-link" target="_blank">MC Server Web</a></h3>
+                    <p>Custom tool that analyzes and optimizes Minecraft server performance, Checks players and connecting servers, and looks at all players, in a web like grid to each server.</p>
                 </div>
             </div>
-            
-            <div class="about-section">
-                <div class="section-title">About Me</div>
-                <div class="about-content" id="about-content">
-                    Hey there! Welcome to my retro Windows 95 profile page. I love the aesthetic of the '90s and do a bunch of HTML, CSS, C++ and Python. Feel free to check out my socials or hit that contact button below to reach out!
-                </div>
-            </div>
-            
-            <button class="contact-button" id="contact-button">Contact Me</button>
-        </div>
+        </section>
+        
+        <section class="section">
+            <h2>// Gaming Experience</h2>
+            <p>I've been playing Minecraft for over 10 years, starting my journey on Mineplex back in 2014. In 2015, I switched to Hypixel where I've been an active community member ever since.</p>
+            <p>Beyond Minecraft, I enjoy exploring various games while applying my technical knowledge to enhance my gaming experience and create tools for the community.</p>
+        </section>
     </div>
     
-    <div class="modal" id="confirm-modal">
-        <div class="modal-window">
-            <div class="modal-title">Confirm</div>
-            <div class="modal-content">
-                <p>Are you sure you want to contact me via Discord?</p>
-                <div class="modal-buttons">
-                    <button class="modal-button" id="yes-button">Yes</button>
-                    <button class="modal-button" id="no-button">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+    <!-- Scripts -->
     <script>
-        // Select DOM elements
-        const contactButton = document.getElementById('contact-button');
-        const confirmModal = document.getElementById('confirm-modal');
-        const yesButton = document.getElementById('yes-button');
-        const noButton = document.getElementById('no-button');
-        const statusIndicator = document.getElementById('status-indicator');
-        const statusText = document.getElementById('status-text');
+        // Particles animation
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
         
-        // Custom data - replace these values with your actual information
-        const userData = {
-            username: "wyind",
-            status: "online", // online, idle, dnd, offline
-            statusMessage: "Currently vibing in Windows 95...",
-            discordUsername: "@wyind",
-            aboutMe: "Hey there! Welcome to my retro Windows 95 profile page. I love the aesthetic of the '90s and wanted to bring back that nostalgic feel with this pink-themed page. Feel free to check out my socials or hit that contact button below to reach out!"
-        };
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
         
-        // Function to update profile with user data
-        function updateProfile() {
-            document.getElementById('username').textContent = userData.username;
-            document.getElementById('status-message').textContent = userData.statusMessage;
-            document.getElementById('about-content').textContent = userData.aboutMe;
+        let particlesArray = [];
+        
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `rgba(${192},${132},${252},${Math.random() * 0.5 + 0.1})`;
+            }
             
-            // Update status indicator
-            statusIndicator.className = 'status-indicator ' + userData.status;
-            switch(userData.status) {
-                case 'online':
-                    statusText.textContent = 'Online';
-                    break;
-                case 'idle':
-                    statusText.textContent = 'Idle';
-                    break;
-                case 'dnd':
-                    statusText.textContent = 'Do Not Disturb';
-                    break;
-                case 'offline':
-                    statusText.textContent = 'Offline';
-                    break;
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.size > 0.2) this.size -= 0.01;
+                
+                // Boundary check with wrap-around
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
         
-        // Initialize profile
-        updateProfile();
-        
-        // Contact button click event
-        contactButton.addEventListener('click', function() {
-            confirmModal.style.display = 'flex';
-        });
-        
-        // Yes button click event
-        yesButton.addEventListener('click', function() {
-            // Replace with your actual Discord link or username
-            window.open('https://discord.com/users/' + userData.discordUsername, '_blank');
-            confirmModal.style.display = 'none';
-        });
-        
-        // No button click event
-        noButton.addEventListener('click', function() {
-            confirmModal.style.display = 'none';
-        });
-        
-        // Custom icon loading function
-        // This is where you would implement code to load custom icons
-        function loadCustomIcons() {
-            // In a real implementation, this would load icons from a user's storage
-            // For now, it's just placeholder logic
-            console.log("Ready to load custom icons");
-        }
-        
-        // Call the icon loading function
-        loadCustomIcons();
-        
-        // Function to simulate Discord profile picture loading
-        // In a real implementation, you would need to use Discord's API
-        function loadDiscordProfile() {
-            // This is where you would implement actual Discord integration
-            console.log("Ready to load Discord profile data");
-        }
-        
-        // Call the Discord profile loading function
-        loadDiscordProfile();
-        
-        // Attempt to add Windows 95 font
-        WebFontLoader.load({
-            custom: {
-                families: ['W95FA'],
-                urls: ['https://fontsforweb.com/font/getcss?id=59761&apikey=a04d7b0365d3e24c6ee1']
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                particlesArray.push(new Particle());
             }
-        });
+        }
+        
+        function handleParticles() {
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                // Connect nearby particles with lines
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(${192},${132},${252},${0.1 - (distance/1000)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+                
+                // Replace particles as they get too small
+                if (particlesArray[i].size <= 0.3) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                    particlesArray.push(new Particle());
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        // Add random CRT glitch effect
+        function randomGlitch() {
+            if (Math.random() > 0.95) {
+                document.body.style.marginLeft = `${Math.random() * 10 - 5}px`;
+                setTimeout(() => {
+                    document.body.style.marginLeft = '0px';
+                }, 100);
+            }
+            
+            setTimeout(randomGlitch, Math.random() * 5000 + 1000);
+        }
+        
+        randomGlitch();
     </script>
 </body>
 </html>
